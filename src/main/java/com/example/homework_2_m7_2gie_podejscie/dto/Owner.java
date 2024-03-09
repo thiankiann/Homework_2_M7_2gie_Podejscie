@@ -1,4 +1,4 @@
-package com.example.homework_2_m7_2gie_podejscie.proxy.dto;
+package com.example.homework_2_m7_2gie_podejscie.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

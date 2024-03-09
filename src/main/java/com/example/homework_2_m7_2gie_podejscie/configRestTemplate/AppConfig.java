@@ -1,4 +1,4 @@
-package com.example.homework_2_m7_2gie_podejscie.proxy;
+package com.example.homework_2_m7_2gie_podejscie.configRestTemplate;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.context.annotation.Bean;

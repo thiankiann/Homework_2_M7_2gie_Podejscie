@@ -1,4 +1,4 @@
-package com.example.homework_2_m7_2gie_podejscie.proxy;
+package com.example.homework_2_m7_2gie_podejscie.controller;
 
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;

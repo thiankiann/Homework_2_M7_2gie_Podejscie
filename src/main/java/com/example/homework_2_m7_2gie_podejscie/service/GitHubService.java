@@ -1,7 +1,7 @@
 package com.example.homework_2_m7_2gie_podejscie.service;
 
-import com.example.homework_2_m7_2gie_podejscie.proxy.GitHubServerProxy;
-import com.example.homework_2_m7_2gie_podejscie.proxy.dto.GitHubResult;
+import com.example.homework_2_m7_2gie_podejscie.controller.GitHubServerProxy;
+import com.example.homework_2_m7_2gie_podejscie.dto.GitHubResult;
 import com.example.homework_2_m7_2gie_podejscie.validation.UserNotFoundException;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
@@ -24,10 +24,8 @@ public class GitHubService {
     public List<GitHubResult> fetchAllRepos(String username) {
         try {
             String json = gitClient.makeGetRequest(username);
-            return gitHubMapper.mapJsonToGitHubResultList(json)
-                    .stream()
-                    .filter(gitHubResult -> !gitHubResult.fork())
-                    .toList();
+            List<GitHubResult> result = gitHubMapper.mapJsonToGitHubResultList(json);
+            return gitHubMapper.mapResultToResultWithoutFork(result);
         }catch (HttpClientErrorException ex){
             throw new UserNotFoundException("User: " + username + " not found" );
         }
