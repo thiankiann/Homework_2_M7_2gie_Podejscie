@@ -1,4 +1,4 @@
-
+DROP TABLE repo;
 
 CREATE TABLE IF NOT EXISTS repo
 (
