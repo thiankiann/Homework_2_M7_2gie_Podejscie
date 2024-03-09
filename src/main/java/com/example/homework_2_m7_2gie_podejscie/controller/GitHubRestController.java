@@ -1,5 +1,6 @@
 package com.example.homework_2_m7_2gie_podejscie.controller;
 
+import com.example.homework_2_m7_2gie_podejscie.model.GitHubResultDatabaseObject;
 import com.example.homework_2_m7_2gie_podejscie.service.GitHubMapper;
 import com.example.homework_2_m7_2gie_podejscie.service.GitHubRetriever;
 import com.example.homework_2_m7_2gie_podejscie.service.GitHubService;
@@ -25,10 +26,10 @@ public class GitHubRestController {
 ////    GitHubDeleter gitHubDeleter;
 //    GitHubRetriever gitHubRetriever;
 ////    GitHubUpdater gitHubUpdater;
-//
-//
+
+
 //    @GetMapping("/{user}")
-//    public ResponseEntity<GitHubListAllResult> getAllInfo(@PathVariable String user) {
+//    public ResponseEntity<GitHubResultDatabaseObject> getAllInfo(@PathVariable String user) {
 //        List<AllInfo> allInfoList = gitHubService.fetchAllInformation(user).allInfoList();
 //        gitHubService.databaseAdder(allInfoList);
 //        GitHubListAllResult response = new GitHubListAllResult(allInfoList);
