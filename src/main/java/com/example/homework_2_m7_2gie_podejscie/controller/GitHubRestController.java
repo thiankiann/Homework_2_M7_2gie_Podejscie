@@ -1,5 +1,7 @@
 package com.example.homework_2_m7_2gie_podejscie.controller;
 
+import com.example.homework_2_m7_2gie_podejscie.dto.GitHubListResult;
+import com.example.homework_2_m7_2gie_podejscie.dto.GitHubResult;
 import com.example.homework_2_m7_2gie_podejscie.model.GitHubResultDatabaseObject;
 import com.example.homework_2_m7_2gie_podejscie.service.GitHubMapper;
 import com.example.homework_2_m7_2gie_podejscie.service.GitHubRetriever;
@@ -21,18 +23,18 @@ import java.util.List;
 public class GitHubRestController {
 
 //    GitHubMapper gitHubMapper;
-//    GitHubService gitHubService;
+   GitHubService gitHubService;
 ////    GitHubAdder gitHubAdder;
 ////    GitHubDeleter gitHubDeleter;
 //    GitHubRetriever gitHubRetriever;
 ////    GitHubUpdater gitHubUpdater;
 
 
-//    @GetMapping("/{user}")
-//    public ResponseEntity<GitHubResultDatabaseObject> getAllInfo(@PathVariable String user) {
-//        List<AllInfo> allInfoList = gitHubService.fetchAllInformation(user).allInfoList();
-//        gitHubService.databaseAdder(allInfoList);
-//        GitHubListAllResult response = new GitHubListAllResult(allInfoList);
-//        return ResponseEntity.ok(response);
-//    }
+    @GetMapping("/{user}")
+    public ResponseEntity<GitHubListResult> getAllInfo(@PathVariable String user) {
+        List<GitHubResult> allInfoList = gitHubService.fetchAllRepos(user); //.allInfoList();
+        gitHubService.databaseAdder(allInfoList);
+        GitHubListResult response = new GitHubListResult(allInfoList);
+        return ResponseEntity.ok(response);
+    }
 }

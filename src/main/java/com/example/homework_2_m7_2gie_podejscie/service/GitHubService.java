@@ -29,18 +29,19 @@ public class GitHubService {
             String json = gitClient.makeGetRequest(username);
             List<GitHubResult> result = gitHubMapper.mapJsonToGitHubResultList(json);
             List<GitHubResult> mapResultToResultWithoutFork =gitHubMapper.mapResultToResultWithoutFork(result);
-            List<GitHubResult> mapResultWithoutForkToModel =gitHubMapper.mapResultWithoutForkToModel(result);
+//            List<GitHubResult> mapResultWithoutForkToModel =gitHubMapper.mapResultWithoutForkToModel(result);
 //            databaseAdder(mapResultWithoutForkToModel);
-            return mapResultWithoutForkToModel;
+//            return mapResultWithoutForkToModel;
+            return mapResultToResultWithoutFork;
         }catch (HttpClientErrorException ex){
             throw new UserNotFoundException("User: " + username + " not found" );
         }
     }
-//    public void databaseAdder(List<GitHubResult> allInfoList){
-//        for (GitHubResult info:
-//                allInfoList) {
-//            gitHubAdder.addInfoToDb(new GitHubResultDatabaseObject(info.name(),info.owner().login()));
-//        }
-//
-//    }
+    public void databaseAdder(List<GitHubResult> allInfoList){
+        for (GitHubResult info:
+                allInfoList) {
+            gitHubAdder.addInfoToDb(new GitHubResultDatabaseObject(info.name(),info.owner().login()));
+        }
+
+    }
 }

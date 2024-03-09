@@ -1,6 +1,7 @@
 package com.example.homework_2_m7_2gie_podejscie.service;
 
 import com.example.homework_2_m7_2gie_podejscie.dto.GitHubResult;
+import com.example.homework_2_m7_2gie_podejscie.dto.GitHubResultView;
 import com.example.homework_2_m7_2gie_podejscie.model.GitHubResultDatabaseObject;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -36,11 +37,12 @@ public class GitHubMapper {
                 .filter(gitHubResult -> !gitHubResult.fork())
                 .toList();
     }
-    public List<GitHubResult> mapResultWithoutForkToModel(List<GitHubResult> result) {
-        return result.stream()
-                .filter(gitHubResult -> !gitHubResult.fork())
-                .toList();
-    }
+//    public List<GitHubResultView> mapResultWithoutForkToModel(List<GitHubResult> result) {
+//        List<GitHubResultView> list = result.stream()
+//                .filter(gitHubResult -> gitHubResultView)
+//                .toList();
+//        return list;
+//    }
 
 
 }
