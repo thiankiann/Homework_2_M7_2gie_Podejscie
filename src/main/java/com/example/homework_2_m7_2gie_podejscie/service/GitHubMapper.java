@@ -35,4 +35,9 @@ public class GitHubMapper {
                 .filter(gitHubResult -> !gitHubResult.fork())
                 .toList();
     }
+    public List<GitHubResult> mapResultWithoutForkToModel(List<GitHubResult> result) {
+        return result.stream()
+                .filter(gitHubResult -> !gitHubResult.fork())
+                .toList();
+    }
 }

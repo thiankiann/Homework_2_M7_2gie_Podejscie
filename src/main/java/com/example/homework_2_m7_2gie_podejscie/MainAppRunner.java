@@ -9,13 +9,15 @@ import org.springframework.stereotype.Component;
 public class MainAppRunner {
 
     GitHubService gitHubService;
+    GitHubService gitHubRetriever;
 
-
-    public MainAppRunner(GitHubService gitHubService) {
+    public MainAppRunner(GitHubService gitHubService, GitHubService gitHubRetriever) {
         this.gitHubService = gitHubService;
+        this.gitHubRetriever = gitHubRetriever;
     }
 
     public void start() {
-        log.info(gitHubService.fetchAllRepos("kalqa"));
+       // log.info(gitHubService.fetchAllRepos("kalqa"));
+        log.info(gitHubRetriever.fetchAllRepos("kalqa"));
     }
 }
